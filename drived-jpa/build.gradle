@@ -1,0 +1,41 @@
+plugins {
+    id 'java-library'
+}
+
+group 'net.lulab.drived'
+version '0.0.1'
+
+description = 'A Java library for Event sourcing with JPA based on Domain-driven development'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':drived-core')
+
+    compile('com.fasterxml.jackson.core:jackson-databind:2.9.5')
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.5')
+    compile('javax.persistence:javax.persistence-api:2.2')
+    compile('org.hibernate:hibernate-core:5.3.1.Final')
+
+    testCompile('junit:junit:4.12')
+    testCompile('org.mockito:mockito-core:2.19.0')
+
+    testCompile project(':drived-core').sourceSets.test.output
+    testCompile('com.h2database:h2:1.4.197')
+
+    testCompileOnly('org.projectlombok:lombok:1.16.22')
+}
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Title': project.name,
+                'Implementation-Version': project.version,
+        )
+    }
+}

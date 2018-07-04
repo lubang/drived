@@ -1,0 +1,5 @@
+rootProject.name = 'drived'
+
+include 'drived-core'
+include 'drived-jpa'
+

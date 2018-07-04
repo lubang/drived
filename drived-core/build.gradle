@@ -1,0 +1,31 @@
+plugins {
+    id 'java-library'
+}
+
+group 'net.lulab.drived'
+version '0.0.1'
+
+description = 'A Java library for Event sourcing based on Domain-driven development'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile('junit:junit:4.12')
+    testCompile('org.mockito:mockito-core:2.19.0')
+
+    testCompileOnly('org.projectlombok:lombok:1.16.22')
+}
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Title': project.name,
+                'Implementation-Version': project.version,
+        )
+    }
+}
